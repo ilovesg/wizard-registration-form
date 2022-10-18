@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Wizard registration form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Test assignment for the positin of frontend developer at Sima-Land. Built using React, TypeScript and Bootstrap. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
