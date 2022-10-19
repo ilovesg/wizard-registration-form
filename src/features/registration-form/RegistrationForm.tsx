@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-final-form";
+import { Form, FormSpy } from "react-final-form";
 import RegistrationFormItems from "./RegistrationFormItems";
 import {
   logPassFields,
@@ -7,9 +7,11 @@ import {
   phoneNumberFields,
 } from "./registrationFormData";
 import { IRegistrationFormField } from "./types/RegistrationFormFieldInterface";
+import RegistrationFormPhoneVerification from "./RegistrationFormPhoneVerification";
 
 export default function RegistrationForm() {
   const [step, setStep] = useState<number>(1);
+  const [code, setCode] = useState<string>("");
 
   const fieldsArr: IRegistrationFormField[][] = [
     logPassFields,
@@ -50,7 +52,14 @@ export default function RegistrationForm() {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit} noValidate>
-          <RegistrationFormItems fields={fieldsArr[step - 1]} />
+          <RegistrationFormItems fields={fieldsArr[step - 1]}>
+            {step === fieldsArr.length && (
+              <RegistrationFormPhoneVerification
+                code={code}
+                setCode={setCode}
+              />
+            )}
+          </RegistrationFormItems>
           <button
             type="button"
             className="btn btn-primary me-3"

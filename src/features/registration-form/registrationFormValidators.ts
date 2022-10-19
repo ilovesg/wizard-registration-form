@@ -5,4 +5,7 @@ interface IRegistrationsFormErrors {
 const required = (value: string) =>
   value ? undefined : "This field is required.";
 
-export { type IRegistrationsFormErrors, required };
+const checkCode = (value: string, code: string) =>
+  code && value === code ? undefined : "Verification code is incorrect.";
+
+export { type IRegistrationsFormErrors, required, checkCode };
