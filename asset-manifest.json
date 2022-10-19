@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wizard-registration-form/static/css/main.ed338d2d.css",
-    "main.js": "/wizard-registration-form/static/js/main.425fb39c.js",
+    "main.js": "/wizard-registration-form/static/js/main.e0f41b26.js",
     "static/js/787.89a097a9.chunk.js": "/wizard-registration-form/static/js/787.89a097a9.chunk.js",
     "index.html": "/wizard-registration-form/index.html",
     "main.ed338d2d.css.map": "/wizard-registration-form/static/css/main.ed338d2d.css.map",
-    "main.425fb39c.js.map": "/wizard-registration-form/static/js/main.425fb39c.js.map",
+    "main.e0f41b26.js.map": "/wizard-registration-form/static/js/main.e0f41b26.js.map",
     "787.89a097a9.chunk.js.map": "/wizard-registration-form/static/js/787.89a097a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed338d2d.css",
-    "static/js/main.425fb39c.js"
+    "static/js/main.e0f41b26.js"
   ]
 }
