@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Field } from "react-final-form";
+import { Form } from "react-final-form";
 import RegistrationFormItems from "./RegistrationFormItems";
 import {
   logPassFields,
@@ -17,7 +17,7 @@ export default function RegistrationForm() {
     phoneNumberFields,
   ];
 
-  const changeStep = (delta: number) => () => {
+  const changeStep = (delta: number) => {
     const nextStep = step + delta;
 
     if (nextStep < 1) {
@@ -35,34 +35,32 @@ export default function RegistrationForm() {
     setStep(nextStep);
   };
 
-  const onSubmit = (): void => {
-    alert("Submitted!");
+  const isLastStep = step === fieldsArr.length;
+
+  const onSubmit = (values: Record<string, any>) => {
+    if (isLastStep) {
+      return alert(`Submitted with values: ${JSON.stringify(values, null, 2)}`);
+    }
+
+    return changeStep(1);
   };
 
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, values }) => (
-        <form onSubmit={handleSubmit}>
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} noValidate>
           <RegistrationFormItems fields={fieldsArr[step - 1]} />
           <button
             type="button"
             className="btn btn-primary me-3"
-            onClick={changeStep(-1)}
             disabled={step === 1}
+            onClick={() => changeStep(-1)}
           >
             Prev
           </button>
-          <button
-            type="button"
-            className="btn btn-primary me-3"
-            onClick={changeStep(1)}
-            disabled={step === fieldsArr.length}
-          >
-            Next
-          </button>
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-primary me-3">
+            {isLastStep ? "Submit" : "Next"}
           </button>
         </form>
       )}
