@@ -1,4 +1,4 @@
-import { IRegistrationFormField } from "./types/RegistrationFormFieldInterface";
+import type { IRegistrationFormField } from "../features/registration-form";
 
 export const logPassFields: IRegistrationFormField[] = [
   {

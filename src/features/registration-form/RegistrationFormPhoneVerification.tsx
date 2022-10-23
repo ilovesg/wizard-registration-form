@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import { Field } from "react-final-form";
 import { checkCode } from "./registrationFormValidators";
 
 interface IRegistrationFormPhoneVerificationProps {
-  code: string;
-  setCode: React.Dispatch<React.SetStateAction<string>>;
+  code?: string;
+  setCode?(code: string): void;
 }
 
 export default function RegistrationFormPhoneVerification({
@@ -28,7 +26,7 @@ export default function RegistrationFormPhoneVerification({
       <button
         type="button"
         className="btn btn-primary mb-3"
-        onClick={() => setCode(generateCode())}
+        onClick={() => setCode?.(generateCode())}
       >
         Get code
       </button>
